@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanIt Weekly Planner</title>
+    <style>
+        body {
+            background-color: #F0FFFF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .planner {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .day {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .day-header {
+            background-color: #1E90FF;
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .tasks {
+            flex: 1;
+            padding: 10px;
+            color: #696969;
+            font-size: 16px;
+            overflow-y: auto;
+        }
+
+        .add-task {
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .add-task:hover {
+            background-color: #4682B4;
+        }
+
+        @media (max-width: 768px) {
+            .planner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .planner {
+                grid-template-columns: 1fr;
+            }
+
+            .day {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>PlanIt Weekly Planner</h1>
+    <div class="planner">
+        <div class="day">
+            <div class="day-header">Monday</div>
+            <div class="tasks" id="tasks-monday">
+                <!-- Tasks for Monday will appear here -->
+            </div>
+            <button class="add-task" onclick="addTask('tasks-monday')">Add Task</button>
+        </div>
+
+        <div class="day">
+            <div class="day-header">Tuesday</div>
+            <div class="tasks" id="tasks-tuesday">
+                <!-- Tasks for Tuesday will appear here -->
+            </div>
+            <button class="add-task" onclick="addTask('tasks-tuesday')">Add Task</button>
+        </div>
+
+        <div class="day">
+            <div class="day-header">Wednesday</div>
+            <div class="tasks" id="tasks-wednesday">
+                <!-- Tasks for Wednesday will appear here -->
+            </div>
+            <button class="add-task" onclick="addTask('tasks-wednesday')">Add Task</button>
+        </div>
+
+        <div class="day">
+            <div class="day-header">Thursday</div>
+            <div class="tasks" id="tasks-thursday">
+                <!-- Tasks for Thursday will appear here -->
+            </div>
+            <button class="add-task" onclick="addTask('tasks-thursday')">Add Task</button>
+        </div>
+
+        <div class="day">
+            <div class="day-header">Friday</div>
+            <div class="tasks" id="tasks-friday">
+                <!-- Tasks for Friday will appear here -->
+            </div>
+            <button class="add-task" onclick="addTask('tasks-friday')">Add Task</button>
+        </div>
+
+        <div class="day">
+            <div class="day-header">Saturday</div>
+            <div class="tasks" id="tasks-saturday">
+                <!-- Tasks for Saturday will appear here -->
+            </div>
+            <button class="add-task" onclick="addTask('tasks-saturday')">Add Task</button>
+        </div>
+
+        <div class="day">
+            <div class="day-header">Sunday</div>
+            <div class="tasks" id="tasks-sunday">
+                <!-- Tasks for Sunday will appear here -->
+            </div>
+            <button class="add-task" onclick="addTask('tasks-sunday')">Add Task</button>
+        </div>
+    </div>
+
+    <script>
+        function addTask(dayId) {
+            const taskText = prompt("Enter your task:");
+            if (taskText) {
+                const taskContainer = document.getElementById(dayId);
+                const taskItem = document.createElement("div");
+                taskItem.textContent = taskText;
+                taskContainer.appendChild(taskItem);
+            }
+        }
+    </script>
+</body>
+</html>
